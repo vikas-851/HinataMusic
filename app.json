@@ -37,6 +37,11 @@
         "value": "5360305806",
         "required": true
       },
+     "OWNER_USERNAME": {
+        "description": "Add owner username without @",
+        "value": "New_AMBOT",
+        "required": true
+      },
       "STRING_SESSION": {
         "description": "A Pyrogram v2 String Session from @StringFatherBot on Telegram.",
         "value": "",
