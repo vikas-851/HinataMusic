@@ -1,5 +1,5 @@
 import math
-from config import OWNER_ID, SUPPORT_CHAT
+from config import OWNER_USERNAME, SUPPORT_CHAT
 from pyrogram.types import InlineKeyboardButton
 from AnieXEricaMusic.utils.formatters import time_to_seconds
 
@@ -59,12 +59,24 @@ def stream_markup_timer(_, chat_id, played, dur):
             )
         ],
         [
+            InlineKeyboardButton(
+                text=_["S_B_1 "], url=f"https://t.me/{app.username}?startgroup=s&admin=delete_messages+manage_video_chats+pin_messages+invite_users+"
+            ),
+        ],
+        [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-        
+        [
+            InlineKeyboardButton(
+                text=_["S_B_2"], url=f"{SUPPORT_CHAT}"
+            ),
+            InlineKeyboardButton(
+                text=_["S_B_5"], url=f"t.me/{OWNER_USERNAME}"
+            ),
+        ],
         
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
