@@ -3,7 +3,6 @@ from config import OWNER_ID, SUPPORT_CHAT
 from pyrogram.types import InlineKeyboardButton
 from AnieXEricaMusic.utils.formatters import time_to_seconds
 
-SUL = "2105971379"
 
 def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
@@ -83,7 +82,7 @@ def stream_markup_timer(_, chat_id, played, dur):
 
                 text="💕 ᴏᴡɴᴇʀ",
 
-                user_id=SUL),
+                user_id=OWNER_ID),
         ],
         
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
@@ -123,7 +122,7 @@ def stream_markup(_, chat_id):
 
                 text="💕 ᴏᴡɴᴇʀ",
 
-                user_id=SUL),
+                user_id=OWNER_ID),
         ],
     
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
