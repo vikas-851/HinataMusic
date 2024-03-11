@@ -6,8 +6,6 @@ general_3 : "Bu söhbətdə anonim idarəçisiniz, məni istifadə etmək üçü
 general_4 : "» Sizə video söhbətlərini idarə etmək üçün icazələr yoxdur.\n\nAdmin keçidini /reload ilə yenidən yükləyin"
 general_5 : "» Bot videoçata yayılmır."
 
-
-
 tg_1 : "<u><b>{0} yükləyici</b></u>\n\n<b>Fayl ölçüsü :</b> {1}\n<b>Tamamlandı :</b> {2}\n<b>Faiz :</b> {3}%\n\n<b>Sürət :</b> {4}/s\n<b>ETA :</b> {5}"
 tg_2 : "Uğurla yükləndi, fayl işlənir...\n\n<b>Keçirilən vaxt :</b> {0}"
 tg_3 : "Telegramdan media yükləmək mümkün olmadı, xahiş edirəm yenidən cəhd edin..."
@@ -17,7 +15,6 @@ tg_6 : "» Yükləmə ləğv edildi."
 tg_7 : "» İptal edən şəxs : {0}"
 tg_8 : "Yükləməyi dayandırmaq mümkün olmadı."
 tg_9 : "Davam edən yükləmə tapılmadı."
-
 
 call_1 : "» Bot istifadəçilərin <b>keçid ilə istifadəçiləri dəvət etmək</b> icazəsinə ehtiyac duyur."
 call_2 : "<u>{0} köməkçi qrupunuzda/məkanınızda qadağan edilmişdir.</u>\n\n<b>ID :</b> <code>{1}</code>\n<b>Ad :</b> {2}\n<b>İstifadəçi adı :</b> @{3}\n\nXahiş edirəm köməkçini açıq buraxın və yenidən cəhd edin."
@@ -87,12 +84,12 @@ admin_39 : "» 1 upvot silindi."
 admin_40 : "Upvot verildi."
 
 
-start_1 : "{0} canlıdır, qızıl alma.\n\n<b>✫ Əməliyyat vaxtı :</b> {1}"
-start_2 : "<b>Salam</b> {0}, 🥀\n\n๏ Bu {1} !\n\n➻ Sürətli və güclü bir Telegram musiqi oynatıcı botu.\n\n<b><u>Dəstəklənən Platformalar :</b></u> YouTube, Spotify, Resso, Apple Music və SoundCloud.\n──────────────────\n<b>๏ Modullarım və əmr komandalarım haqqında məlumat almaq üçün kömək düyməsini sıxın.</b>"
-start_3 : "Salam {0},\nBu {1}.\n\nMəni {2}-də əlavə etdiyiniz üçün təşəkkür edirəm, {3} artıq bu söhbətdə mahnı oynada bilər."
-start_4 : "🎄 <b>Süperqrupa ehtiyac var</b> 🎄\n\nXahiş edirəm <b>qrupunuzu</b> <b>süperqrupa</b> çevirin və sonra məni yenidən əlavə edin.\n\n<b>Süperqrup necə yaradılır?</b>\n- Qrupunuzun söhbət tarixini <b>görünür</b> eləyin."
-start_5 : "<b>↝ Siyahıya alınmış söhbət ↜</b>\n\nBu söhbət {0} məlumat bazasında siyahıya alınmışdır.\nSöhbətinizi açdırmaq üçün bir <a href={1}>sudo istifadəçisi</a> tələb edin və ya <a href={2}>dəstək söhbətinə</a> müraciət edin."
-start_6 : "😲 <b>İzləmə məlumatı</b> 😲\n\n📌 <b>Başlıq :</b> {0}\n\n⏳ <b>Müddət :</b> {1} dəqiqə\n👀 <b>Baxışlar :</b> <code>{2}</code>\n⏰ <b>Yayımlanma tarixi :</b> {3}\n📎 <b>Kanal :</b> <a href={4}>{5}</a>\n\n<u><b>🥀 {6} tərəfindən gücləndirilmiş axtarış</b></u>"
+start_1 : "{0} canlıdır, qızıl günlər.\n\n✫ İş vaxtı: {1}"
+start_2 : "Salam {0},\n\n๏ Bu {1} !\n⚡️ Bəzi xüsusiyyətlər ⚡️\n➻ Mən qrup VC-də mahnı oxuya bilərəm.\n➻ 8 dildə əlavə edildi.\n➻ Lag yoxdur.\n➻ Mahnı yüklə.\n➻ Reklam yoxdur.\n➻ Ən yaxşı səs keyfiyyəti.\n➻ Tez və güclü telegram musiqi oxucu botu ilə bir necə gözəl xüsusiyyətlər.\n\nDəstəklənən platformalar: YouTube, Spotify, Resso, Apple Musiqi və SoundCloud.\n──────────────────\n๏ Modullarım və əmrlərim haqqında məlumat almaq üçün kömək düyməsini basın."
+start_3 : "Salam {0},\nBu {1}.\n\n{2}, {3} məni əlavə etdiyiniz üçün təşəkkür edirəm, artıq bu danışıqlarda mahnılar oxuya bilər."
+start_4 : "🎄 Super qrup lazımdır 🎄\n\nZəhmət olmasa <b> qrupunuzu super qrupa çevirin və sonra məni yenidən əlavə edin.\n\nSuper qrup necə yaradılır?\n- Qrupunuzun söhbət tarixini bir dəfə görünən et."
+start_5 : "↝ Qara siyahıya alınmış danışıq ↜\n\nBu söhbət {0} verilənlər bazasında qara siyahıya alındı.\nSizə <a href={1}>sudou istifadəçisi</a> təyin edin ki, sizin danışıqınızı qara siyahıdan çıxarsın və ya <a href={2}>dəstək danışığını ziyarət edin.</a>"
+start_6 : "😲 İzləmə məlumatları 😲\n\n📌 Başlıq: {0}\n\n⏳ Müddət: {1} dəqiqə\n👀 Baxışlar: <code>{2}</code>\n⏰ Buraxılış tarixi: {3}\n📎Kanal: <a href={4}>{5}</a>\n\n🥀 {6} tərəfindən gücləndirilmiş axtarış."
 
 help_1 : "Kömək almaq istədiyiniz kateqoriyanı seçin. Bütün əmr komandaları ilə istifadə edə bilərsiniz: <code>/</code>"
 help_2 : "Mənə kömək menyusunu almaq üçün aşağıdakı düyməyə klikləyin."
