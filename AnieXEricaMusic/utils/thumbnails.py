@@ -1,16 +1,12 @@
-
-import random
-import textwrap
-import aiofiles
-import aiohttp
 import os
 import re
+import aiofiles
+import aiohttp
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 from unidecode import unidecode
 from youtubesearchpython.__future__ import VideosSearch
-
 from AnieXEricaMusic import app
-from config import YOUTUBE_IMG_URL 
+from config import YOUTUBE_IMG_URL
 
 def changeImageSize(maxWidth, maxHeight, image):
     widthRatio = maxWidth / image.size[0]
@@ -162,4 +158,4 @@ async def get_thumb(videoid):
     except:
         pass
     background.save(f"cache/{videoid}_v4.png")
-    return YOUTUBE_IMG_URL
+    return f"cache/{videoid}_v4.png"
