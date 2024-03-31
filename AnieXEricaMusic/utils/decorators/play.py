@@ -1,5 +1,5 @@
 import asyncio
-
+from time import time
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import (
     ChatAdminRequired,
