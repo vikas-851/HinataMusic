@@ -8,6 +8,7 @@ from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 from AnieXEricaMusic.utils.database import add_active_video_chat, is_active_chat
 import config
+from time import time
 from AnieXEricaMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
 from AnieXEricaMusic.core.call import AMBOT
 from AnieXEricaMusic.utils.exceptions import AssistantErr
