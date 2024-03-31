@@ -586,7 +586,6 @@ async def get_served_chats() -> list:
         chats_list.append(chat)
     return chats_list
 
-
 async def is_served_chat(chat_id: int) -> bool:
     chat = await chatsdb.find_one({"chat_id": chat_id})
     if not chat:
@@ -599,6 +598,10 @@ async def add_served_chat(chat_id: int):
     if is_served:
         return
     return await chatsdb.insert_one({"chat_id": chat_id})
+    
+async def delete_served_chat(chat_id: int):
+    await chatsdb.delete_one({"chat_id": chat_id})
+
 
 
 async def blacklisted_chats() -> list:
