@@ -7,6 +7,14 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InputMediaPhoto, Message
 from pytgcalls.exceptions import NoActiveGroupCall
 from AnieXEricaMusic.utils.database import add_active_video_chat, is_active_chat
+from AnieXEricaMusic.utils.database import (
+    add_served_chat,
+    add_served_user,
+    blacklisted_chats,
+    get_lang,
+    is_banned_user,
+    is_on_off,
+)
 import config
 from time import time
 from AnieXEricaMusic import Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app
