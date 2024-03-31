@@ -62,7 +62,7 @@ def queue_back_markup(_, CPLAY):
     )
     return upl
 
-def aq_markup(_, videoid, chat_id):
+def aq_markup(_, chat_id):
     buttons = [
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
