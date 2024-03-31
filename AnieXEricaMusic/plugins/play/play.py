@@ -116,11 +116,7 @@ async def play_commnd(
                 )
             except Exception as e:
                 ex_type = type(e).__name__
-                err = (
-                    e
-                    if ex_type == "AssistantErr"
-                    else _["general_3"].format(ex_type)
-                )
+                err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
                 return await mystic.edit_text(err)
             return await mystic.delete()
         return
@@ -166,11 +162,7 @@ async def play_commnd(
                 )
             except Exception as e:
                 ex_type = type(e).__name__
-                err = (
-                    e
-                    if ex_type == "AssistantErr"
-                    else _["general_3"].format(ex_type)
-                )
+                err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
                 return await mystic.edit_text(err)
             return await mystic.delete()
         return
@@ -322,11 +314,7 @@ async def play_commnd(
                 )
             except Exception as e:
                 ex_type = type(e).__name__
-                err = (
-                    e
-                    if ex_type == "AssistantErr"
-                    else _["general_3"].format(ex_type)
-                )
+                err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
                 return await mystic.edit_text(err)
             return await mystic.delete()
         else:
@@ -337,13 +325,11 @@ async def play_commnd(
                     "ᴛʜᴇʀᴇ's ᴀɴ ᴇʀʀᴏʀ ɪɴ ᴛʜᴇ ʙᴏᴛ, ᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ɪᴛ ᴛᴏ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ ᴀs sᴏᴏɴ ᴀs ᴩᴏssɪʙʟᴇ."
                 )
                 return await app.send_message(
-                    config.LOG_GROUP_ID,
+                    config.LOGGER_ID,
                     "ᴩʟᴇᴀsᴇ ᴛᴜʀɴ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ ᴛᴏ sᴛʀᴇᴀᴍ ᴜʀʟ.",
                 )
             except Exception as e:
-                return await mystic.edit_text(
-                    _["general_3"].format(type(e).__name__)
-                )
+                return await mystic.edit_text(_["general_2"].format(type(e).__name__))
             await mystic.edit_text(_["str_2"])
             try:
                 await stream(
@@ -360,15 +346,9 @@ async def play_commnd(
                 )
             except Exception as e:
                 ex_type = type(e).__name__
-                err = (
-                    e
-                    if ex_type == "AssistantErr"
-                    else _["general_3"].format(ex_type)
-                )
+                err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
                 return await mystic.edit_text(err)
-            return await play_logs(
-                message, streamtype="M3u8 or Index Link"
-            )
+            return await play_logs(message, streamtype="M3u8 or Index Link")
     else:
         if len(message.command) < 2:
             buttons = botplaylist_markup(_)
@@ -427,11 +407,7 @@ async def play_commnd(
             )
         except Exception as e:
             ex_type = type(e).__name__
-            err = (
-                e
-                if ex_type == "AssistantErr"
-                else _["general_3"].format(ex_type)
-            )
+            err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
             return await mystic.edit_text(err)
         await mystic.delete()
         return await play_logs(message, streamtype=streamtype)
@@ -570,13 +546,9 @@ async def play_music(client, CallbackQuery, _):
             streamtype="youtube",
             forceplay=ffplay,
         )
-    except Exception as e:
+ except Exception as e:
         ex_type = type(e).__name__
-        err = (
-            e
-            if ex_type == "AssistantErr"
-            else _["general_3"].format(ex_type)
-        )
+        err = e if ex_type == "AssistantErr" else _["general_2"].format(ex_type)
         return await mystic.edit_text(err)
     return await mystic.delete()
 
