@@ -21,7 +21,7 @@ from AnieXEricaMusic.utils.inline import (
     slider_markup,
     track_markup,
 )
-from VIPMUSIC.utils.stream.stream import stream
+from AnieXEricaMusic.utils.stream.stream import stream
 from AnieXEricaMusic.utils.database import (
     add_served_chat,
     add_served_user,
