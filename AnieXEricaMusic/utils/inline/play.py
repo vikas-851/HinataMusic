@@ -1,12 +1,10 @@
 import math
-from typing import Union
 from pyrogram.types import InlineKeyboardButton
 
 from AnieXEricaMusic.utils.formatters import time_to_seconds
 
-from AnieXEricaMusic import app
 
-def track_markup(_, user_id, channel, fplay):
+def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
@@ -28,7 +26,7 @@ def track_markup(_, user_id, channel, fplay):
     return buttons
 
 
-def stream_markup_timer(_, videoid, chat_id, played, dur):
+def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
     percentage = (played_sec / duration_sec) * 100
@@ -54,34 +52,32 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
     else:
         bar = "—————————◉"
     buttons = [
-         [
-            InlineKeyboardButton(
-                text=f"{played} {bar} {dur}",
-                callback_data="GetTimer",
-            )
-        ],
+    
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-    
-      [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
+        
+        [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
 
 
 def stream_markup(_, videoid, chat_id):
     buttons = [
-
+    
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(
+                text= "✚ ᴘʟᴀʏʟɪsᴛ",
+                callback_data=f"vip_playlist {videoid}"
+            ),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-     
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
