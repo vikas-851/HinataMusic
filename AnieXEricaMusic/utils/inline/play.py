@@ -1,8 +1,10 @@
 import math
-from config import OWNER_USERNAME, SUPPORT_CHAT
+from typing import Union
 from pyrogram.types import InlineKeyboardButton
+
 from AnieXEricaMusic.utils.formatters import time_to_seconds
 
+from AnieXEricaMusic import app
 
 def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
