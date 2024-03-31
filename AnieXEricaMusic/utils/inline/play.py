@@ -6,7 +6,7 @@ from AnieXEricaMusic.utils.formatters import time_to_seconds
 
 from AnieXEricaMusic import app
 
-def track_markup(_, videoid, user_id, channel, fplay):
+def track_markup(_, user_id, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
@@ -78,7 +78,6 @@ def stream_markup(_, videoid, chat_id):
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="➕", callback_data=f"add_playlist {videoid}"),
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
