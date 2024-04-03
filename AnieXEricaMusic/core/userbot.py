@@ -45,6 +45,12 @@ class Userbot(Client):
             session_string=str(config.STRING5),
             no_updates=True,
         )
+        self.six = Client(
+            name="AnieXEricaAss6",
+            api_id=config.API_ID,
+            api_hash=config.API_HASH,
+            session_string=str(config.STRING6),
+        )
 
     async def start(self):
         LOGGER(__name__).info(f"Starting Assistants...")
@@ -193,6 +199,24 @@ class Userbot(Client):
             assistantids.append(self.five.id)
             LOGGER(__name__).info(f"Assistant Five Started as {self.five.name}")
 
+        if config.STRING6:
+            await self.six.start()
+            try:
+                await self.six.join_chat("AmBotYT")
+            except:
+                pass
+            try:
+                await self.six.send_message(config.LOGGER_ID, "Supper Fban UserBot Started")
+            except:
+                LOGGER(__name__).error(
+                    "Super Fban UserBot Not Admin In Your Group..Fast Make Admin In Your Logs Group...."
+                )
+                exit()
+            self.six.id = self.six.me.id
+            self.six.name = self.six.me.mention
+            self.six.username = self.six.me.username
+            LOGGER(__name__).info(f"Super Fban Started as {self.four.name}")
+
     async def stop(self):
         LOGGER(__name__).info(f"Stopping Assistants...")
         try:
@@ -206,5 +230,7 @@ class Userbot(Client):
                 await self.four.stop()
             if config.STRING5:
                 await self.five.stop()
+            if config.STRING6:
+                await self.six.stop()
         except:
             pass
