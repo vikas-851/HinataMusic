@@ -13,7 +13,7 @@ heroku()
 
 app = AMBOT()
 userbot = Userbot()
-fban = Fban()
+bot = Fban()
 
 from .platforms import *
 
