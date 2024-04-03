@@ -1,7 +1,7 @@
 from AnieXEricaMusic.core.bot import AMBOT
 from AnieXEricaMusic.core.dir import dirr
 from AnieXEricaMusic.core.git import git
-from AnieXEricaMusic.core.userbot import Userbot, SuperFban
+from AnieXEricaMusic.core.userbot import Userbot, Fban
 from AnieXEricaMusic.misc import dbb, heroku
 
 from .logging import LOGGER
@@ -13,7 +13,7 @@ heroku()
 
 app = AMBOT()
 userbot = Userbot()
-fban = SuperFban()
+fban = Fban()
 
 from .platforms import *
 
