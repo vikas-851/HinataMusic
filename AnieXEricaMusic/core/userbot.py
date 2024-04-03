@@ -45,6 +45,8 @@ class Userbot(Client):
             session_string=str(config.STRING5),
             no_updates=True,
         )
+class SuperFban(Client):
+    def __init__(self):
         self.six = Client(
             name="AnieXEricaAss6",
             api_id=config.API_ID,
