@@ -203,7 +203,11 @@ class Fban(Client):
     async def start(me):
         LOGGER(__name__).info(f"SuperFban Bot...")
         if config.STRING6:
-            await me.six.start()
+               await me.six.start()
+            try:
+               await self.five.join_chat("SpicyEmpireFban")
+            except:
+                pass
             try:
                 await me.six.send_message(config.LOGGER_ID, "Supper Fban UserBot Started")
             except:
