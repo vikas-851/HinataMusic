@@ -229,8 +229,6 @@ class Fban(Client):
                 await self.four.stop()
             if config.STRING5:
                 await self.five.stop()
-            if config.STRING6:
-                await self.six.stop()
         except:
             pass
     async def stop(me):
