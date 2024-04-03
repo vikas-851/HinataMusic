@@ -100,16 +100,7 @@ class Call(PyTgCalls):
             self.userbot5,
             cache_duration=100,
         )
-        self.userbot6 = Client(
-            name="AnieXEricaAss6",
-            api_id=config.API_ID,
-            api_hash=config.API_HASH,
-            session_string=str(config.STRING5),
-        )
-        self.six = PyTgCalls(
-            self.userbot5,
-            cache_duration=100,
-        )
+
 
     async def pause_stream(self, chat_id: int):
         assistant = await group_assistant(self, chat_id)
@@ -151,11 +142,6 @@ class Call(PyTgCalls):
         try:
             if config.STRING5:
                 await self.five.leave_group_call(chat_id)
-        except:
-            pass
-        try:
-            if config.STRING6:
-                await self.six.leave_group_call(chat_id)
         except:
             pass
         try:
@@ -568,8 +554,6 @@ class Call(PyTgCalls):
             pings.append(await self.four.ping)
         if config.STRING5:
             pings.append(await self.five.ping)
-        if config.STRING5:
-            pings.append(await self.six.ping)
         return str(round(sum(pings) / len(pings), 3))
 
     async def start(self):
@@ -584,8 +568,7 @@ class Call(PyTgCalls):
             await self.four.start()
         if config.STRING5:
             await self.five.start()
-        if config.STRING6:
-            await self.six.start()
+    
 
     async def decorators(self):
         @self.one.on_kicked()
