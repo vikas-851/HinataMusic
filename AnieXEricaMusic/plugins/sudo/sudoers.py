@@ -46,7 +46,7 @@ async def userdel(client, message: Message, _):
         await message.reply_text(_["sudo_8"])
 
 
-@app.on_message(filters.command(["sudolist", "listsudo", "sudoers"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
+@app.on_message(filters.command(["sudolist"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & ~BANNED_USERS)
 async def sudoers_list(client, message: Message):
     keyboard = [[InlineKeyboardButton("𝗚𝗲𝘁 𝗦𝘂𝗱𝗼𝗹𝗶𝘀𝘁", callback_data="check_sudo_list")]]
     reply_markups = InlineKeyboardMarkup(keyboard)
@@ -59,22 +59,21 @@ async def check_sudo_list(client, callback_query: CallbackQuery):
         return await callback_query.answer("Sudolist Dekhna he kya 😎😂", show_alert=True)
     else:
         user = await app.get_users(OWNER_ID)
-        owne = user.first_name
+        AMBOT = user.first_name
         user_mention = (user.first_name if not user.mention else user.mention)
         caption = f"ʟɪsᴛ ᴏғ ʙᴏᴛ ᴍᴏᴅᴇʀᴀᴛᴏʀs˼\n\n💕Oᴡɴᴇʀ  ➥ {user_mention}\n\n"
-        text = f"{owne}"
 
-        keyboard.append([InlineKeyboardButton(text, url=f"tg://openmessage?user_id={OWNER_ID}")])
+        keyboard.append([InlineKeyboardButton(AMBOT, url=f"tg://openmessage?user_id={OWNER_ID}")])
         
         count = 1
         for user_id in SUDOERS:
             if user_id != OWNER_ID:
                 try:
                     user = await app.get_users(user_id)
-                    owne = user.first_name
-                    user_mention = user.mention if user else f"**🎁 Sᴜᴅᴏ {count} ɪᴅ:** {user_id}"
-                    caption += f"**🎁 Sᴜᴅᴏ** {count} **»** {user_mention}\n"
-                    button_text = f"{owne} {count}"
+                    AMBOT = user.first_name
+                    user_mention = user.mention if user else f"💌 Sᴜᴅᴏ {count} ɪᴅ:** {user_id}"
+                    caption += f"💌 Sᴜᴅᴏ {count} » {user_mention}\n"
+                    button_text = f"{AMBOT} {count}"
                     keyboard.append([InlineKeyboardButton(button_text, url=f"tg://openmessage?user_id={user_id}")]
                     )
                     count += 1
@@ -92,4 +91,4 @@ async def check_sudo_list(client, callback_query: CallbackQuery):
 async def back_to_main_menu(client, callback_query: CallbackQuery):
     keyboard = [[InlineKeyboardButton("𝗚𝗲𝘁 𝗦𝘂𝗱𝗼𝗹𝗶𝘀𝘁", callback_data="check_sudo_list")]]
     reply_markupes = InlineKeyboardMarkup(keyboard)
-    await callback_query.message.edit_caption(caption="**» ᴄʜᴇᴄᴋ sᴜᴅᴏ ʟɪsᴛ ʙʏ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ.**\n\n**» ɴᴏᴛᴇ:**  ᴏɴʟʏ sᴜᴅᴏ ᴜsᴇʀs ᴄᴀɴ ᴠɪᴇᴡ. ", reply_markup=reply_markupes)
+    await callback_query.message.edit_caption(caption="» ᴄʜᴇᴄᴋ sᴜᴅᴏ ʟɪsᴛ ʙʏ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ.\n\n» ɴᴏᴛᴇ:  ᴏɴʟʏ sᴜᴅᴏ ᴜsᴇʀs ᴄᴀɴ ᴠɪᴇᴡ. ", reply_markup=reply_markupes)
