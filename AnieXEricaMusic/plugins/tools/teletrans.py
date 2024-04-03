@@ -67,7 +67,7 @@ async def create_telegraph_link(client, message):
                 sticker_image.save("sticker_as_image.png")
                 media = "sticker_as_image.png"
         else:
-            await message.reply_text("**Unsupported media type. Please reply to an image or a sticker.**")
+            await message.reply_text("Unsupported media type. Please reply to an image or a sticker.")
             return
 
         # Increase brightness
@@ -102,7 +102,7 @@ async def create_telegraph_link(client, message):
         await client.send_photo(
             message.chat.id,
             photo=brightened_file_path,
-            caption=f"**Here is your Telegraph link with increased brightness:**\n\n{button_url}\n\n**Made by @{app.username}**",
+            caption=f"Here is your Telegraph link with increased brightness:\n\n{button_url}\n\nMade by @{app.username}",
             reply_markup=reply_markup,
         )
 
@@ -124,7 +124,7 @@ async def create_telegraph_link(client, message):
 
     except Exception as e:
         print(f"Failed to create Telegraph link: {e}")
-        await message.reply_text("**Failed to create Telegraph link. Please try again later.**")
+        await message.reply_text("Failed to create Telegraph link. Please try again later..")
 
 async def convert_animated_sticker_to_video(input_file, output_file):
     command = f"ffmpeg -i {input_file} -vf 'fps=25,scale=320:-1:flags=lanczos' -c:v libx264 -crf 20 -pix_fmt yuv420p {output_file}"
