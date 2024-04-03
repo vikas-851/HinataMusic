@@ -5,7 +5,7 @@ from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from AnieXEricaMusic import LOGGER, app, userbot
+from AnieXEricaMusic import LOGGER, app, userbot, fban 
 from AnieXEricaMusic.core.call import AMBOT
 from AnieXEricaMusic.misc import sudo
 from AnieXEricaMusic.plugins import ALL_MODULES
@@ -20,6 +20,7 @@ async def init():
         and not config.STRING3
         and not config.STRING4
         and not config.STRING5
+        and not config.STRING6
     ):
         LOGGER(__name__).error("Assistant client variables not defined, exiting...")
         exit()
@@ -38,6 +39,7 @@ async def init():
         importlib.import_module("AnieXEricaMusic.plugins" + all_module)
     LOGGER("AnieXEricaMusic.plugins").info("Successfully Imported Modules...")
     await userbot.start()
+    await fban.start()
     await AMBOT.start()
     try:
         await AMBOT.stream_call("https://graph.org/file/946f1cc229bbeba19b802.mp4")
@@ -55,6 +57,7 @@ async def init():
     await idle()
     await app.stop()
     await userbot.stop()
+    await fban.stop()
     LOGGER("AnieXEricaMusic").info("Stopping AnieXErica Music Bot...")
 
 
