@@ -23,7 +23,14 @@ from AnieXEricaMusic.utils.inline import (
 from AnieXEricaMusic.utils.logger import play_logs
 from AnieXEricaMusic.utils.stream.stream import stream
 from config import BANNED_USERS, lyrical
-
+from AnieXEricaMusic.utils.database import (
+    add_served_chat,
+    add_served_user,
+    blacklisted_chats,
+    get_lang,
+    is_banned_user,
+    is_on_off,
+)
 
 @app.on_message(
     filters.command(
@@ -53,6 +60,7 @@ async def play_commnd(
     url,
     fplay,
 ):
+    await add_served_chat(message.chat.id)
     mystic = await message.reply_text(
         _["play_2"].format(channel) if channel else _["play_1"]
     )
