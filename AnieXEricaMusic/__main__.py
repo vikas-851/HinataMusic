@@ -5,7 +5,7 @@ from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from AnieXEricaMusic import LOGGER, app, userbot, Fban  
+from AnieXEricaMusic import LOGGER, app, userbot, bot  
 from AnieXEricaMusic.core.call import AMBOT
 from AnieXEricaMusic.misc import sudo
 from AnieXEricaMusic.plugins import ALL_MODULES
