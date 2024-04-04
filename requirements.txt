@@ -26,7 +26,7 @@ youtube-search-python
 gpytranslate
 telegraph
 httpx==0.25.2
-lexica-api==1.4.7
+lexica-api 
 numpy
 wget
 git+https://github.com/AsmSafone/SafoneAPI
