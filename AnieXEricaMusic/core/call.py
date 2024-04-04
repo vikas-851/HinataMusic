@@ -290,24 +290,24 @@ class Call(PyTgCalls):
         await assistant.leave_group_call(config.LOGGER_ID)
 
 
-    async def join_assistant(self, original_chat_id, chat_id):
-        language = await get_lang(original_chat_id)
-        _ = get_string(language)
-        userbot = await get_assistant(chat_id)
-        try:
-            try:
-                get = await app.get_chat_member(chat_id, userbot.id)
-            except ChatAdminRequired:
-                raise AssistantErr(_["call_11"])
-            if get.status == "banned" or get.status == "kicked":
-                try:
-                    await app.unban_chat_member(chat_id, userbot.id)
-                except:
-                    raise AssistantErr(
-                        _["call_2"].format(
-                            app.mention, userbot.id, userbot.name, userbot.username
-                        ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text=_["UNBAN_BUTTON"], callback_data=f"unban_assistant")]])
-                    )
+#      async def join_assistant(self, original_chat_id, chat_id):
+#          language = await get_lang(original_chat_id)
+#          _ = get_string(language)
+#          userbot = await get_assistant(chat_id)
+#          try:
+#              try:
+#                  get = await app.get_chat_member(chat_id, userbot.id)
+#              except ChatAdminRequired:
+#                  raise AssistantErr(_["call_11"])
+#              if get.status == "banned" or get.status == "kicked":
+#                  try:
+#                      await app.unban_chat_member(chat_id, userbot.id)
+#                  except:
+#                      raise AssistantErr(
+#                          _["call_2"].format(
+#                              app.mention, userbot.id, userbot.name, userbot.username
+#                          ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text=_["UNBAN_BUTTON"], callback_data=f"unban_assistant")]])
+#                    )
         except UserNotParticipant:
             chat = await app.get_chat(chat_id)
             if chat.username:
