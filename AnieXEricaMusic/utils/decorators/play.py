@@ -129,6 +129,7 @@ def PlayWrapper(command):
                         reply_markup=InlineKeyboardMarkup([
                             [InlineKeyboardButton(text=_["UNBAN_BUTTON"], callback_data=f"unban_assistant")]
                         ])
+                    )
             except UserNotParticipant:
                 if chat_id in links:
                     invitelink = links[chat_id]
