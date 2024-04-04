@@ -39,6 +39,28 @@ checker = {}
 upvoters = {}
 
 
+@app.on_callback_query(filters.regex("MainMarkup") & ~BANNED_USERS)
+@languageCB
+async def del_back_playlist(client, CallbackQuery, _):
+    await CallbackQuery.answer()
+    callback_data = CallbackQuery.data.strip()
+    callback_request = callback_data.split(None, 1)[1]
+    videoid, chat_id = callback_request.split("|")
+    if videoid == str(None):
+        buttons = telegram_markup(_, chat_id)
+    else:
+        buttons = stream_markup(_, videoid, chat_id)
+    chat_id = CallbackQuery.message.chat.id
+    try:
+        await CallbackQuery.edit_message_reply_markup(
+            reply_markup=InlineKeyboardMarkup(buttons)
+        )
+    except:
+        return
+    if chat_id not in checker:
+        checker[chat_id] = {}
+    checker[chat_id][CallbackQuery.message.message_id] = True
+
 @app.on_callback_query(filters.regex("ADMIN") & ~BANNED_USERS)
 @languageCB
 async def del_back_playlist(client, CallbackQuery, _):
@@ -203,6 +225,7 @@ async def del_back_playlist(client, CallbackQuery, _):
         duration = check[0]["dur"]
         streamtype = check[0]["streamtype"]
         videoid = check[0]["vidid"]
+        user_id = check[0]["user_id"]
         status = True if str(streamtype) == "video" else None
         db[chat_id][0]["played"] = 0
         exis = (check[0]).get("old_dur")
@@ -262,7 +285,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 await AMBOT.skip_stream(chat_id, file_path, video=status, image=image)
             except:
                 return await mystic.edit_text(_["call_6"])
-            button = stream_markup(_, chat_id)
+            button = stream_markup(_, videoid, chat_id)
             img = await get_thumb(videoid, user_id)
             run = await CallbackQuery.message.reply_photo(
                 photo=img,
@@ -333,7 +356,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             else:
-                button = stream_markup(_, chat_id)
+                button = stream_markup(_, videoid, chat_id)
                 img = await get_thumb(videoid, user_id)
                 run = await CallbackQuery.message.reply_photo(
                     photo=img,
