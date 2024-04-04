@@ -2,10 +2,14 @@ import asyncio
 import os
 from datetime import datetime, timedelta
 from typing import Union
-from pyrogram.errors import (ChatAdminRequired,
-                             UserAlreadyParticipant,
-                             UserNotParticipant)
-from pyrogram import Client
+from pyrogram.errors import (
+    ChatAdminRequired,
+    InviteRequestSent,
+    UserAlreadyParticipant,
+    UserNotParticipant,
+)
+from pyrogram.enums import ChatMemberStatus
+from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.exceptions import (
@@ -39,10 +43,12 @@ from AnieXEricaMusic.utils.inline.play import stream_markup
 from AnieXEricaMusic.utils.stream.autoclear import auto_clean
 from AnieXEricaMusic.utils.thumbnails import get_thumb
 from strings import get_string
+from config import adminlist
 
 autoend = {}
 counter = {}
 AUTO_END_TIME = 2
+links = {}
 
 async def _clear_(chat_id):
     db[chat_id] = []
