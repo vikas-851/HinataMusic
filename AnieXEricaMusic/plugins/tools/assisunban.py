@@ -51,15 +51,14 @@ def UserbotWrapper(command):
                 try:
                     get = await app.get_chat_member(chat_id, userbot.id)
                 except ChatAdminRequired:
-                    return await message.reply_text(_["call_13"])
+                    return await message.reply_text("ʙᴏᴛ ʀᴇǫᴜɪʀᴇs ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ɪɴᴠɪᴛᴇ ᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ ɢʀᴏᴜᴘ.")
                 if (
                     get.status == ChatMemberStatus.BANNED
                     or get.status == ChatMemberStatus.RESTRICTED
                 ):
-                    return await message.reply_text(
-                        _["call_2"].format(
+                    return await message.reply_text("{0} ᴀssɪsᴛᴀɴᴛ ɪs ʙᴀɴɴᴇᴅ ɪɴ ᴛʜɪs ᴄʜᴀᴛ.\n\n┗ɪᴅ : <code>{1}</code> ☜\n\n┗ᴀᴍᴇ : {2} ☜\n\n┗ᴜsᴇʀɴᴀᴍᴇ : @{3} ☜\n\nᴘʟᴇᴀsᴇ ᴜɴʙᴀɴ ᴛʜᴇ ᴀssɪsᴛᴀɴᴛ ᴀɴᴅ ᴛʀʏ ᴘʟᴀʏɪɴɢ ᴀɢᴀɪɴ...".format(
                             app.mention, userbot.id, userbot.name, userbot.username
-                        ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text=_["UNBAN_BUTTON"], callback_data=f"unban_assistant")]])
+                        ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Uɴʙᴀɴ Assɪs", callback_data=f"unban_assistant")]])
                     )
             except UserNotParticipant:
                 if message.chat.username:
@@ -76,20 +75,20 @@ def UserbotWrapper(command):
                         try:
                             invitelink = await app.export_chat_invite_link(chat_id)
                         except ChatAdminRequired:
-                            return await message.reply_text(_["call_13"])
+                            return await message.reply_text("ʙᴏᴛ ʀᴇǫᴜɪʀᴇs ɪɴᴠɪᴛᴇ ᴜsᴇʀs ᴠɪᴀ ʟɪɴᴋ ᴘᴇʀᴍɪssɪᴏɴ ᴛᴏ ɪɴᴠɪᴛᴇ ᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ ɢʀᴏᴜᴘ.")
                         except Exception as e:
-                            return await message.reply_text(_["call_5"])
+                            return await message.reply_text(f"{app.mention} ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ✅\n\n𝗜𝗱:- {userbot.mention}..")
 
                 if invitelink.startswith("https://t.me/+"):
                     invitelink = invitelink.replace(
                         "https://t.me/+", "https://t.me/joinchat/"
                     )
-                myu = await message.reply_text(_["call_4"])
+                myu = await message.reply_text(f"ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ...\n\nɪɴᴠɪᴛɪɴɢ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ...")
                 try:
                     await asyncio.sleep(1)
                     await userbot.join_chat(invitelink)
                     await myu.delete()
-                    await message.reply_text(_["call_5"])
+                    await message.reply_text(f"{app.mention} ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ✅\n\n𝗜𝗱:- @{userbot.username}")
                 except InviteRequestSent:
                     try:
                         await app.approve_chat_join_request(chat_id, userbot.id)
@@ -99,11 +98,11 @@ def UserbotWrapper(command):
                         )
                     await asyncio.sleep(3)
                     await myu.delete()
-                    await message.reply_text(_["call_5"])
+                    await message.reply_text(f"{app.mention} ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ✅\n\n𝗜𝗱:- @{userbot.username}")
                 except UserAlreadyParticipant:
                     pass
                 except Exception as e:
-                    return await message.reply_text(_["call_5"])
+                    return await message.reply_text(f"{app.mention} ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ✅\n\n𝗜𝗱:- @{userbot.username}")
 
                 links[chat_id] = invitelink
 
