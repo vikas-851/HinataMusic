@@ -4,10 +4,26 @@ from pyrogram import filters, enums
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.types import Message
 from pyrogram.enums import ChatType, ChatMemberStatus
+from pyrogram.errors import (
+    ChatAdminRequired,
+    InviteRequestSent,
+    UserAlreadyParticipant,
+    UserNotParticipant,
+)
 
 BOT_ID = app.id
 USE_AS_BOT = True
 
+async def generate_join_link(chat_id: int):
+    invite_link = await app.export_chat_invite_link(chat_id)
+    return invite_link
+
+def ordinal(n):
+    suffix = ['th', 'st', 'nd', 'rd', 'th'][min(n % 10, 4)]
+    if 11 <= (n % 100) <= 13:
+        suffix = 'th'
+    return str(n) + suffix
+    
 async def admin_check(message: Message) -> bool:
     if not message.from_user:
         return False
@@ -82,8 +98,9 @@ async def admin_filter_f(filt, client, message):
 admin_filter = filters.create(func=admin_filter_f, name="AdminFilter")
 
 
-@app.on_message(filters.command("unbanall") & admin_filter)
+@app.on_message(filters.command("ds") & admin_filter)
 async def unban_all(_, msg):
+    mystic = await msg.reply_text(f"✫ ᴜɴʙᴀɴᴀʟʟ ᴄʜᴀᴛs ᴍᴇᴍʙᴇʀꜱ... ✫", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('✯ ᴄʟᴏsᴇ ✯', callback_data=f"close")]]))
     chat_id = msg.chat.id
     x = 0
     bot = await app.get_chat_member(chat_id, BOT_ID)
@@ -92,17 +109,23 @@ async def unban_all(_, msg):
         banned_users = []
         async for m in app.get_chat_members(chat_id, filter=enums.ChatMembersFilter.BANNED):
             banned_users.append(m.user.id)
+        
+        if not banned_users:
+            await mystic.edit_text("​🇹​​🇭​​🇪​​🇷​​🇪​ ​🇦​​🇷​​🇪​ ​🇳​​🇴​ ​🇧​​🇦​​🇳​​🇳​​🇪​​🇩​ ​🇺​​🇸​​🇪​​🇷​​🇸​ ​🇮​​🇳​ ​🇹​​🇭​​🇮​​🇸​ ​🇬​​🇷​​🇴​​🇺​​🇵​.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('✯ ᴄʟᴏsᴇ ✯', callback_data=f"close")]]))
+        else:
             try:
-                await app.unban_chat_member(chat_id, banned_users[x])
-                print(f"ᴜɴʙᴀɴɪɴɢ ᴀʟʟ ᴍᴄ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ {m.user.mention}")
-                x += 1
+                for user_id in banned_users:
+                    await app.unban_chat_member(chat_id, user_id)
+                    print(f"ᴜɴʙᴀɴɪɴɢ ᴀʟʟ ᴍᴄ ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ {user_id}")
+                    x += 1
+                await mystic.edit_text(f"✫ ᴀʟʟ ᴜꜱᴇʀꜱ ʜᴀᴠᴇ ʙᴇᴇɴ ᴜɴʙᴀɴɴᴇᴅ.\nᴛᴏᴛᴀʟ ᴜɴʙᴀɴɴᴇᴅ ᴜꜱᴇʀꜱ : {x} ✫", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('✯ ᴄʟᴏsᴇ ✯', callback_data=f"close")]]))
             except Exception:
-                pass
+                await mystic.edit_text("ᴀɴ ᴇʀʀᴏʀ ᴏᴄᴄᴜʀʀᴇᴅ ᴡʜɪʟᴇ ᴜɴʙᴀɴɴɪɴɢ ᴜꜱᴇʀꜱ.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('✯ ᴄʟᴏsᴇ ✯', callback_data=f"close")]]))
     else:
         await msg.reply_text("ᴇɪᴛʜᴇʀ ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ʀɪɢʜᴛ ᴛᴏ ʀᴇsᴛʀɪᴄᴛ ᴜsᴇʀs ᴏʀ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɪɴ sᴜᴅᴏ ᴜsᴇʀs")
+
 
 @app.on_callback_query(filters.regex("^stop$"))
 async def stop_callback(_, query):
     await query.message.delete()
 
-#AMBOTOP
