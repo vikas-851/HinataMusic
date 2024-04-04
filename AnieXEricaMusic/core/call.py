@@ -308,51 +308,51 @@ class Call(PyTgCalls):
 #                              app.mention, userbot.id, userbot.name, userbot.username
 #                          ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text=_["UNBAN_BUTTON"], callback_data=f"unban_assistant")]])
 #                    )
-        except UserNotParticipant:
-            chat = await app.get_chat(chat_id)
-            if chat.username:
-                try:
-                    await userbot.join_chat(chat.username)
-                except UserAlreadyParticipant:
-                    pass
-                except Exception as e:
-                    raise AssistantErr(_["call_12"].format(e))
-            else:
-                try:
-                    try:
-                        try:
-                            invitelink = chat.invite_link
-                            if invitelink is None:
-                                invitelink = (
-                                    await app.export_chat_invite_link(
-                                        chat_id
-                                    )
-                                )
-                        except:
-                            invitelink = (
-                                await app.export_chat_invite_link(
-                                    chat_id
-                                )
-                            )
-                    except ChatAdminRequired:
-                        raise AssistantErr(_["call_13"])
-                    except Exception as e:
-                        raise AssistantErr(e)
-                    m = await app.send_message(
-                        original_chat_id, _["call_14"].format(userbot.name, chat.title)
-                    )
-                    if invitelink.startswith("https://t.me/+"):
-                        invitelink = invitelink.replace(
-                            "https://t.me/+", "https://t.me/joinchat/"
-                        )
-                    await asyncio.sleep(1)
-                    await userbot.join_chat(invitelink)
-                    await m.edit_text(_["call_6"].format(app.mention))
-                except UserAlreadyParticipant:
-                    pass
-                except Exception as e:
-                    raise AssistantErr(_["call_3"].format(e))
-
+#          except UserNotParticipant:
+#              chat = await app.get_chat(chat_id)
+#              if chat.username:
+#                  try:
+#                      await userbot.join_chat(chat.username)
+#                  except UserAlreadyParticipant:
+#                      pass
+#                  except Exception as e:
+#                      raise AssistantErr(_["call_12"].format(e))
+#               else:
+#                  try:
+#                      try:
+#                          try:
+#                              invitelink = chat.invite_link
+#                              if invitelink is None:
+#                                  invitelink = (
+#                                      await app.export_chat_invite_link(
+#                                          chat_id
+#                                      )
+#                                  )
+#                          except:
+#                              invitelink = (
+#                                  await app.export_chat_invite_link(
+#                                      chat_id
+#                                  )
+#                              )
+#                      except ChatAdminRequired:
+#                          raise AssistantErr(_["call_13"])
+#                      except Exception as e:
+#                          raise AssistantErr(e)
+#                      m = await app.send_message(
+#                          original_chat_id, _["call_14"].format(userbot.name, chat.title)
+#                      )
+#                      if invitelink.startswith("https://t.me/+"):
+#                          invitelink = invitelink.replace(
+#                              "https://t.me/+", "https://t.me/joinchat/"
+#                          )
+#                      await asyncio.sleep(1)
+#                      await userbot.join_chat(invitelink)
+#                      await m.edit_text(_["call_6"].format(app.mention))
+#                  except UserAlreadyParticipant:
+#                      pass
+#                  except Exception as e:
+#                      raise AssistantErr(_["call_3"].format(e))
+#  
     async def join_call(
         self,
         chat_id: int,
