@@ -98,7 +98,7 @@ async def admin_filter_f(filt, client, message):
 admin_filter = filters.create(func=admin_filter_f, name="AdminFilter")
 
 
-@app.on_message(filters.command("ds") & admin_filter)
+@app.on_message(filters.command("unbanall") & admin_filter)
 async def unban_all(_, msg):
     mystic = await msg.reply_text(f"✫ ᴜɴʙᴀɴᴀʟʟ ᴄʜᴀᴛs ᴍᴇᴍʙᴇʀꜱ... ✫", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('✯ ᴄʟᴏsᴇ ✯', callback_data=f"close")]]))
     chat_id = msg.chat.id
@@ -111,7 +111,7 @@ async def unban_all(_, msg):
             banned_users.append(m.user.id)
         
         if not banned_users:
-            await mystic.edit_text("​🇹​​🇭​​🇪​​🇷​​🇪​ ​🇦​​🇷​​🇪​ ​🇳​​🇴​ ​🇧​​🇦​​🇳​​🇳​​🇪​​🇩​ ​🇺​​🇸​​🇪​​🇷​​🇸​ ​🇮​​🇳​ ​🇹​​🇭​​🇮​​🇸​ ​🇬​​🇷​​🇴​​🇺​​🇵​.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('✯ ᴄʟᴏsᴇ ✯', callback_data=f"close")]]))
+            await mystic.edit_text("ᴛʜᴇʀᴇ ᴀʀᴇ ɴᴏ ʙᴀɴɴᴇᴅ ᴜꜱᴇʀꜱ ɪɴ ᴛʜɪꜱ ɢʀᴏᴜᴘ.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('✯ ᴄʟᴏsᴇ ✯', callback_data=f"close")]]))
         else:
             try:
                 for user_id in banned_users:
