@@ -28,3 +28,6 @@ telegraph
 httpx==0.25.2
 lexica-api==1.4.7
 numpy
+wget
+git+https://github.com/AsmSafone/SafoneAPI
+lexica-api==1.5.1
