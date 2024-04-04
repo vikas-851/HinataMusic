@@ -83,7 +83,7 @@ async def get_thumb(videoid, user_id):
         x = f.resize((107, 107))
 
         
-youtube = Image.open(f"cache/thumb{videoid}.png")
+        youtube = Image.open(f"cache/thumb{videoid}.png")
         bg = Image.open(f"AnieXEricaMusic/test/{random_bg_image}")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
@@ -121,7 +121,7 @@ youtube = Image.open(f"cache/thumb{videoid}.png")
         draw = ImageDraw.Draw(background)
         font = ImageFont.truetype("AnieXEricaMusic/test/font2.ttf", 45)
         ImageFont.truetype("AnieXEricaMusic/test/font2.ttf", 70)
-        arial = ImageFont.truetype("AM/test/font2.ttf", 30)
+        arial = ImageFont.truetype("AnieXEricaMusic/test/font2.ttf", 30)
         ImageFont.truetype("AnieXEricaMusic/test/font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         try:
