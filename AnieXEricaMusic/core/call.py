@@ -298,10 +298,10 @@ class Call(PyTgCalls):
                     await app.unban_chat_member(chat_id, userbot.id)
                 except:
                     raise AssistantErr(
-                        _["call_2"].format(app.mention, userbot.id, userbot.mention, userbot.username),
-                    )reply_markup=InlineKeyboardMarkup([
-                      [InlineKeyboardButton(text=_["UNBAN_BUTTON"], callback_data=f"unban_assistant")]
-                    ])
+                        _["call_2"].format(
+                            app.mention, userbot.id, userbot.name, userbot.username
+                        ), reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text=_["UNBAN_BUTTON"], callback_data=f"unban_assistant")]])
+                    )
         except UserNotParticipant:
             chat = await app.get_chat(chat_id)
             if chat.username:
