@@ -98,8 +98,8 @@ async def stream(
                     "video" if video else "audio",
                     forceplay=forceplay,
                 )
-                img = await get_thumb(vidid, user_id)
-                button = stream_markup(_, vidid, chat_id)
+                img = await get_thumb(vidid)
+                button = stream_markup(_, chat_id)
                 run = await app.send_photo(
                     original_chat_id,
                     photo=img,
@@ -156,7 +156,7 @@ async def stream(
                 "video" if video else "audio",
             )
             position = len(db.get(chat_id)) - 1
-            button = aq_markup(_, vidid, chat_id)
+            button = aq_markup(_, chat_id)
             await app.send_message(
                 chat_id=original_chat_id,
                 text=_["queue_4"].format(position, title[:27], duration_min, user_name),
@@ -184,8 +184,8 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid, user_id)
-            button = stream_markup(_, vidid, chat_id)
+            img = await get_thumb(vidid)
+            button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
                 photo=img,
@@ -352,7 +352,7 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid, user_id)
+            img = await get_thumb(vidid)
             button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
