@@ -5,6 +5,14 @@ import config
 from AnieXEricaMusic import YouTube, app
 from AnieXEricaMusic.core.call import AMBOT
 from AnieXEricaMusic.misc import db
+from AnieXEricaMusic.utils.database import (
+    add_served_chat,
+    add_served_user,
+    blacklisted_chats,
+    get_lang,
+    is_banned_user,
+    is_on_off,
+)
 from AnieXEricaMusic.utils.database import get_loop
 from AnieXEricaMusic.utils.decorators import AdminRightsCheck
 from AnieXEricaMusic.utils.inline import close_markup, stream_markup
@@ -18,6 +26,7 @@ from config import BANNED_USERS
 )
 @AdminRightsCheck
 async def skip(cli, message: Message, _, chat_id):
+     await add_served_chat(message.chat.id)
     if not len(message.command) < 2:
         loop = await get_loop(chat_id)
         if loop != 0:
