@@ -7,7 +7,7 @@ from AnieXEricaMusic import app
 from AnieXEricaMusic.utils import help_pannel
 from AnieXEricaMusic.utils.database import get_lang
 from AnieXEricaMusic.utils.decorators.language import LanguageStart, languageCB
-from AnieXEricaMusic.utils.inline.help import help_back_markup, private_help_panel, AMBOT_help_back_markup
+from AnieXEricaMusic.utils.inline.help import help_back_markup, private_help_panel, AMBOT_help_back_markup, AMBOT_private_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
 
@@ -43,9 +43,10 @@ async def helper_private(
             caption=_["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard,
         )
-
+        
+@app.on_message(filters.command(["ghelp"]) & filters.private & ~BANNED_USERS)
 @app.on_callback_query(filters.regex("AMBOT_settings_back_helper") & ~BANNED_USERS)
-async def helper_private(
+async def AMBOT_helper_private(
     client: app, update: Union[types.Message, types.CallbackQuery]
 ):
     is_callback = isinstance(update, types.CallbackQuery)
