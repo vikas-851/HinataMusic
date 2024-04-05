@@ -183,6 +183,7 @@ stream_2 : "➲ <b>ʏᴀʏɪᴍᴀ ʙᴀŞʟᴀɴᴅɪ |</b>\n\n<b>‣ ᴀxɪɴ 
 
 CLOSE_BUTTON  : "✯ ʏᴀxɪɴ ✯"
 BACK_BUTTON : "✯ ᴀʀxᴀ ✯"
+UNBAN_BUTTON : "✯ İmtina edin ✯"
 
 S_B_1 : "➕ ᴍƏɴɪ Qʀᴜᴘᴜɴᴜᴢᴀ ƏʟᴀᴠƏ ᴇᴅɪɴ"
 S_B_2 : "ꜱÖʜʙƏᴛ Qʀᴜᴘᴜ"
@@ -214,8 +215,9 @@ H_B_15 : "ꜱÜʀƏᴛ"
 H_B_16 : "Digərləri"
 H_B_17 : "Qrup Təmizlə"
 H_B_18 : "Söhbət-GPT"
-H_B_19 : "Loqo"
-UNBAN_BUTTON : "✯ İmtina edin ✯"
+H_B_19 : "loqo"
+H_B_20 : "YazıAləti"
+
 
 P_B_1 : "səs"
 P_B_2 : "ᴠɪᴅᴇᴏ"
