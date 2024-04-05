@@ -5,6 +5,18 @@ answer = []
 answer.extend(
     [
         InlineQueryResultArticle(
+            title="ꜱᴛᴀʀᴛ",
+            description="ꜱᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ",
+            thumb_url="https://graph.org/file/56515b2097e2d2314581f.jpg",
+            input_message_content=InputTextMessageContent("/start"),
+        ),
+        InlineQueryResultArticle(
+            title="ʜᴇʟᴘ",
+            description="ᴄʜᴇᴄᴋ ʙᴏᴛ ᴄᴍᴅꜱ",
+            thumb_url="https://graph.org/file/56515b2097e2d2314581f.jpg",
+            input_message_content=InputTextMessageContent("/help"),
+        ),
+        InlineQueryResultArticle(
             title="Pᴀᴜsᴇ",
             description=f"ᴩᴀᴜsᴇ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴩʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ.",
             thumb_url="https://graph.org/file/56515b2097e2d2314581f.jpg",
