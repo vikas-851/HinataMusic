@@ -140,40 +140,6 @@ def help_back_markup(_):
     )
     return upl
 
-    am = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton(
-                    text=_["H_B_1"],
-                    callback_data="help_callback hb1",
-                ),
-                InlineKeyboardButton(
-                    text=_["H_B_2"],
-                    callback_data="help_callback hb2",
-                ),
-                InlineKeyboardButton(
-                    text=_["H_B_3"],
-                    callback_data="help_callback hb3",
-                ),
-            ],
-           
-            mark,
-        ]
-    )
-    return am
-
-def am_help_back_markup(_):
-    am = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton(
-                    text=_["BACK_BUTTON"],
-                    callback_data=f"settings_back_helper",
-                ),
-            ]
-        ]
-    )
-    return am
 
 def private_help_panel(_):
     buttons = [
@@ -185,3 +151,44 @@ def private_help_panel(_):
         ],
     ]
     return buttons
+
+def AMBOT_help_pannel(_, START: Union[bool, int] = None):
+    first = [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data=f"close")]
+    second = [
+        InlineKeyboardButton(
+            text=_["BACK_BUTTON"],
+            callback_data=f"settingsback_helper",
+        ),
+    ]
+    mark = second if START else first
+    AMBOT = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text=_["H_B_21"],
+                    callback_data="help_callback hb21",
+                ),
+                InlineKeyboardButton(
+                    text=_["H_B_22"],
+                    callback_data="help_callback hb22",
+                ),
+            ],
+            
+            mark,
+        ]
+    )
+    return AMBOT
+
+
+def AMBOT_help_back_markup(_):
+    AMBOT = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text=_["BACK_BUTTON"],
+                    callback_data=f"AMBOT_help_callback",
+                ),
+            ]
+        ]
+    )
+    return AMBOT
