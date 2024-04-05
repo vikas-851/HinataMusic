@@ -7,7 +7,7 @@ from AnieXEricaMusic import app
 from AnieXEricaMusic.utils import help_pannel
 from AnieXEricaMusic.utils.database import get_lang
 from AnieXEricaMusic.utils.decorators.language import LanguageStart, languageCB
-from AnieXEricaMusic.utils.inline.help import help_back_markup, private_help_panel
+from AnieXEricaMusic.utils.inline.help import help_back_markup, private_help_panel, AMBOThelp_back_markup, AMBOTprivate_help_panel
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
 
