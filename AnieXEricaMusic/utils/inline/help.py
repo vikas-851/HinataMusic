@@ -140,6 +140,40 @@ def help_back_markup(_):
     )
     return upl
 
+    am = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text=_["H_B_1"],
+                    callback_data="help_callback hb1",
+                ),
+                InlineKeyboardButton(
+                    text=_["H_B_2"],
+                    callback_data="help_callback hb2",
+                ),
+                InlineKeyboardButton(
+                    text=_["H_B_3"],
+                    callback_data="help_callback hb3",
+                ),
+            ],
+           
+            mark,
+        ]
+    )
+    return am
+
+def am_help_back_markup(_):
+    am = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(
+                    text=_["BACK_BUTTON"],
+                    callback_data=f"settings_back_helper",
+                ),
+            ]
+        ]
+    )
+    return am
 
 def private_help_panel(_):
     buttons = [
