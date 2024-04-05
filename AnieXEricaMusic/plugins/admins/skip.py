@@ -26,7 +26,6 @@ from config import BANNED_USERS
 )
 @AdminRightsCheck
 async def skip(cli, message: Message, _, chat_id):
-     await add_served_chat(message.chat.id)
     if not len(message.command) < 2:
         loop = await get_loop(chat_id)
         if loop != 0:
