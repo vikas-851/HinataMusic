@@ -31,3 +31,4 @@ numpy
 wget
 git+https://github.com/AsmSafone/SafoneAPI
 lexica-api==1.5.1
+lyricsgenius
