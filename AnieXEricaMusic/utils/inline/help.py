@@ -192,3 +192,14 @@ def AMBOT_help_back_markup(_):
         ]
     )
     return AMBOT
+
+def AMBOT_private_help_panel(_):
+    buttons = [
+        [
+            InlineKeyboardButton(
+                text=_["S_B_4"],
+                url=f"https://t.me/{app.username}?start=ghelp",
+            ),
+        ],
+    ]
+    return buttons
