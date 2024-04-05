@@ -12,6 +12,7 @@ BOT_TOKEN = getenv("BOT_TOKEN","")
 MONGO_DB_URI = getenv("MONGO_DB_URI", "")
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "9999"))
 LOGGER_ID = int(getenv("LOGGER_ID", None))
+BOTADDLOGS = int(getenv("BOTADDLOGS", "-1001841879487")) # LOGGER_ID Id Also Use No Problem
 OWNER_ID = int(getenv("OWNER_ID", 2105971379))
 OWNER = int(getenv("OWNER", 5360305806))
 OWNER_USERNAME = getenv("OWNER_USERNAME","New_AMBOT")
