@@ -50,6 +50,8 @@ AMBOT = [
     "🔎",
     "🔍",
     "🧪",
+    "ᴘʟꜱ ᴡᴀɪᴛ..",
+    "ᴘʀᴏᴄᴇꜱꜱɪɴɢ..",
 ]
 
 START_IMG_URL = getenv("START_IMG_URL", "https://graph.org/file/f234fa4e140eb1b85d185.jpg")
