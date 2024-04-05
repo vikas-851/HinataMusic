@@ -7,7 +7,7 @@ from AnieXEricaMusic import app
 from AnieXEricaMusic.utils import help_pannel
 from AnieXEricaMusic.utils.database import get_lang
 from AnieXEricaMusic.utils.decorators.language import LanguageStart, languageCB
-from AnieXEricaMusic.utils.inline.help import help_back_markup, private_help_panel
+from AnieXEricaMusic.utils.inline.help import help_back_markup, private_help_panel, am_help_back_markup
 from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
 from strings import get_string, helpers
 
@@ -58,6 +58,7 @@ async def helper_cb(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
     keyboard = help_back_markup(_)
+    AM = am_help_back_markup(_)
     if cb == "hb1":
         await CallbackQuery.edit_message_text(helpers.HELP_1, reply_markup=keyboard)
     elif cb == "hb2":
@@ -102,4 +103,8 @@ async def helper_cb(client, CallbackQuery, _):
         await CallbackQuery.edit_message_text(helpers.HELP_21, reply_markup=keyboard)
     elif cb == "hb22":
         await CallbackQuery.edit_message_text(helpers.HELP_22, reply_markup=keyboard)
+    elif cb == "hb1":
+        await CallbackQuery.edit_message_text(helpers.HELP_1, reply_markup=AM)
+    elif cb == "hb2":
+        await CallbackQuery.edit_message_text(helpers.HELP_2, reply_markup=AM)
 
