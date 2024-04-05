@@ -180,6 +180,7 @@ stream_2 : "➲ <b>Mulai Streaming |</b>\n\n<b>‣ Jenis Streaming :</b> Streami
 
 CLOSE_BUTTON  : "✯ ᴄʟᴏꜱᴇ ✯"
 BACK_BUTTON : "✯ ʙᴀᴄᴋ ✯"
+UNBAN_BUTTON : "✯ Buka Blokir ✯"
 
 S_B_1 : "➕ Tambahkan saya ke grup Anda"
 S_B_2 : "Grup Obrolan"
@@ -206,7 +207,10 @@ H_B_12 : "Acak"
 H_B_13 : "Cari"
 H_B_14 : "Lagu"
 H_B_15 : "Kecepatan"
-
+H_B_16 : "Lainnya"
+H_B_17 : "Grup Bersih"
+H_B_18 : "Chat-GPT"
+H_B_19 : "Logo"
 
 P_B_1 : "ᴀᴜᴅɪᴏ"
 P_B_2 : "ᴠɪᴅᴇᴏ"
