@@ -73,7 +73,7 @@ async def check_sudo_list(client, callback_query: CallbackQuery):
                     AMBOT = user.first_name
                     user_mention = user.mention if user else f"💌 Sᴜᴅᴏ {count} ɪᴅ:** {user_id}"
                     caption += f"💌 Sᴜᴅᴏ {count} » {user_mention}\n"
-                    button_text = f"{AMBOT} {count}"
+                    button_text = f"{count}. {AMBOT}"
                     keyboard.append([InlineKeyboardButton(button_text, url=f"tg://openmessage?user_id={user_id}")]
                     )
                     count += 1
