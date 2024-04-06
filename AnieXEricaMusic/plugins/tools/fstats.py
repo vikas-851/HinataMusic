@@ -50,3 +50,37 @@ async def sg(client: Client, message: Message):
     
     await lol.delete()
     
+
+@app.on_message(filters.command(["fedinfo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]))
+async def sg(client: Client, message: Message):
+    lol = await message.reply("<code>Checking FedInfo...</code>")
+    bo = ["MissRose_bot", "MissRose_bot"]
+    sg = random.choice(bo)
+    if 1 in assistants:
+        ubot = us.one
+    
+    try:
+        text = message.text.split(' ', 1)[1]
+        a = await ubot.send_message(sg, f"/fedInfo {text}")
+        await a.delete()
+    except IndexError:
+        return await lol.edit("<code>Please specify a valid fedId!.</code>")
+    except Exception as e:
+        return await lol.edit(str(e))
+    
+    await asyncio.sleep(1)
+    
+    async for stalk in ubot.search_messages(a.chat.id):
+        if stalk.text is None:
+            continue
+        if stalk:
+            await message.reply(f"{stalk.text}")
+            break  
+    
+    try:
+        user_info = await ubot.resolve_peer(sg)
+        await ubot.send(DeleteHistory(peer=user_info, max_id=0, revoke=True))
+    except Exception:
+        pass
+    
+    await lol.delete()
