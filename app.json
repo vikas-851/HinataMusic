@@ -37,6 +37,16 @@
         "value": "5360305806",
         "required": true
       },
+    "OWNER": {
+        "description": "The user id of user whom you would like to add as OWNER.from @Sophia_x_MusicBot on Telegram.",
+        "value": "5360305806",
+        "required": true
+      },
+    "BOTADDLOGS": {
+        "description": "Logger group id add also",
+        "value": "",
+        "required": true
+      },
      "OWNER_USERNAME": {
         "description": "Add owner username without @",
         "value": "New_AMBOT",
