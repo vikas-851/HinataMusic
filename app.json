@@ -54,7 +54,7 @@
       },
      "SUPPORT_CHANNEL": {
         "description": "Add channel link",
-        "value": "https://t.me/Logs_Gban",
+        "value": "https://t.me/SuperBanSBots",
         "required": true
       },
         "SUPPORT_CHAT": {
