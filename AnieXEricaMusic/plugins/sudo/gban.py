@@ -17,7 +17,7 @@ from AnieXEricaMusic.utils.database import (
 )
 from AnieXEricaMusic.utils.decorators.language import language
 from AnieXEricaMusic.utils.extraction import extract_user
-from config import BANNED_USERS
+from config import BANNED_USERS, GBAN_LOGS
 
 
 @app.on_message(filters.command(["gban", "globalban"]) & SUDOERS)
@@ -67,6 +67,19 @@ async def global_ban(client, message: Message, _):
     )
     await mystic.delete()
 
+   return await app.send_message(
+            chat_id=GBAN_LOGS,
+            text=_["gban_6"].format(
+            app.mention,
+            message.chat.title,
+            message.chat.id,
+            user.mention,
+            user.id,
+            message.from_user.mention,
+            number_of_chats,
+                )
+        )
+    await mystic.delete()
 
 @app.on_message(filters.command(["ungban"]) & SUDOERS)
 @language
@@ -99,6 +112,14 @@ async def global_un(client, message: Message, _):
     await message.reply_text(_["gban_9"].format(user.mention, number_of_chats))
     await mystic.delete()
 
+   return await app.send_message(
+        chat_id=GBAN_LOGS,
+        text=_["gban_9"].format(app.mention, 
+                                user.mention, 
+                                number_of_chats,
+                                user.id, 
+                                message.from_user.mention))
+    await mystic.delete()
 
 @app.on_message(filters.command(["gbannedusers", "gbanlist"]) & SUDOERS)
 @language
