@@ -67,7 +67,7 @@ async def global_ban(client, message: Message, _):
     )
     await mystic.delete()
 
-   return await app.send_message(
+        return await app.send_message(
             chat_id=GBAN_LOGS,
             text=_["gban_6"].format(
             app.mention,
@@ -112,7 +112,7 @@ async def global_un(client, message: Message, _):
     await message.reply_text(_["gban_9"].format(user.mention, number_of_chats))
     await mystic.delete()
 
-   return await app.send_message(
+        return await app.send_message(
         chat_id=GBAN_LOGS,
         text=_["gban_9"].format(app.mention, 
                                 user.mention, 
