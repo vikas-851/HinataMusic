@@ -10,6 +10,8 @@ from AnieXEricaMusic.utils.database import (
     remove_active_chat,
     remove_active_video_chat,
 )
+from AnieXEricaMusic.utils.database import add_served_chat, delete_served_chat
+from AnieXEricaMusic.utils.database import get_assistant
 
 async def generate_join_link(chat_id: int):
     invite_link = await app.export_chat_invite_link(chat_id)
@@ -20,6 +22,13 @@ def ordinal(n):
     if 11 <= (n % 100) <= 13:
         suffix = 'th'
     return str(n) + suffix
+
+
+@app.on_message(filters.command(["rankings", "config", "topgroups", "topusers", "topgame", "mytop", "ok", "bye", "welcome", "thanks","hii"] ,prefixes=["","/", "!", "%", ",", "", ".", "@", "#"]) & filters.group)
+async def bot_check(_, message):
+    chat_id = message.chat.id
+    await add_served_chat(chat_id)
+
 
 @app.on_message(filters.command(["activevc", "activevoice"]) & SUDOERS)
 async def activevc(_, message: Message):
