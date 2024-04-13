@@ -57,6 +57,7 @@ class Userbot(Client):
                 await self.one.join_chat("TGGojoSatoRu")
                 await self.one.join_chat("SuperBanSBots")
                 await self.one.join_chat("About_AMBot")
+                await self.one.join_chat("TeamSuperBan")
             except:
                 pass
             assistants.append(1)
@@ -82,6 +83,7 @@ class Userbot(Client):
                 await self.two.join_chat("TGGojoSatoRu")
                 await self.two.join_chat("SuperBanSBots")
                 await self.two.join_chat("About_AMBot")
+                await self.two.join_chat("TeamSuperBan")
             except:
                 pass
             assistants.append(2)
@@ -107,6 +109,7 @@ class Userbot(Client):
                 await self.three.join_chat("TGGojoSatoRu")
                 await self.three.join_chat("SuperBanSBots")
                 await self.three.join_chat("About_AMBot")
+                await self.three.join_chat("TeamSuperBan")
             except:
                 pass
             assistants.append(3)
