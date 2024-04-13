@@ -15,12 +15,12 @@ from AnieXEricaMusic.utils.database import (
 )
 from AnieXEricaMusic.utils.decorators.language import language
 from AnieXEricaMusic.utils.formatters import alpha_to_int
-from config import adminlist
+from config import adminlist, GCAST_USERS
 
 IS_BROADCASTING = False
 
 
-@app.on_message(filters.command(["broadcast", "gcast"]) & SUDOERS)
+@app.on_message(filters.command(["broadcast", "gcast"]) & filters.user(GCAST_USERS))
 @language
 async def braodcast_message(client, message, _):
     global IS_BROADCASTING
