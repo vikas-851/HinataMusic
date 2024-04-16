@@ -24,7 +24,7 @@ def ordinal(n):
     return str(n) + suffix
 
 
-@app.on_message(filters.command(["rankings", "config", "topgroups", "topusers", "topgame", "mytop", "ok", "bye", "welcome", "thanks","hii"] ,prefixes=["","/", "!", "%", ",", "", ".", "@", "#"]) & filters.group)
+@app.on_message(filters.command(["join","vc","song","rankings", "config", "topgroups", "topusers", "topgame", "mytop", "ok", "bye", "welcome", "thanks","hii"] ,prefixes=["","/"]) & filters.group)
 async def bot_check(_, message):
     chat_id = message.chat.id
     await add_served_chat(chat_id)
