@@ -42,6 +42,17 @@
         "value": "5916859256",
         "required": true
       },
+    "GBAN_LOGS": {
+        "description": "Logger group id add also",
+        "value": "",
+        "required": true
+      },
+    "GCAST_USERS": {
+        "description": "Gcast Users Only use Like : 5916859256 5916859256",
+        "value": "",
+        "required": true
+      },
+    
     "BOTADDLOGS": {
         "description": "Logger group id add also",
         "value": "",
