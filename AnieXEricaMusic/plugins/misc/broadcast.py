@@ -45,7 +45,7 @@ async def braodcast_message(client, message, _):
             return await message.reply_text(_["broad_8"])
 
     IS_BROADCASTING = True
-    await message.reply_text(_["broad_1"])
+    AMBOT = await message.reply_text(_["broad_1"])
 
     if "-nobot" not in message.text:
         sent = 0
@@ -102,6 +102,7 @@ async def braodcast_message(client, message, _):
                 )
                 susr += 3
                 await asyncio.sleep(0.2)
+                await AMBOT.edit("» Broadcast progress:\nSuccess ᴄʜᴀᴛs: {0}\nᴘɪɴs : {1}".format(sent, pin))
             except FloodWait as fw:
                 flood_time = int(fw.value)
                 if flood_time > 200:
