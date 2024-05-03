@@ -48,7 +48,7 @@ async def global_ban(client, message: Message, _):
     for chat_id in served_chats:
         try:
             await app.ban_chat_member(chat_id, user.id)
-            number_of_chats += 1
+            number_of_chats += 3
         except FloodWait as fw:
             await asyncio.sleep(int(fw.value))
         except:
@@ -101,7 +101,7 @@ async def global_un(client, message: Message, _):
     for chat_id in served_chats:
         try:
             await app.unban_chat_member(chat_id, user.id)
-            number_of_chats += 1
+            number_of_chats += 3
         except FloodWait as fw:
             await asyncio.sleep(int(fw.value))
         except:
