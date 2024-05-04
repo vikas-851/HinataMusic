@@ -20,7 +20,7 @@ from config import adminlist, GCAST_USERS
 IS_BROADCASTING = False
 
 
-@app.on_message(filters.command(["broadcast", "gcast"]) & filters.user(GCAST_USERS))
+@app.on_message(filters.command(["broadcast"]) & filters.user(GCAST_USERS))
 @language
 async def braodcast_message(client, message, _):
     global IS_BROADCASTING
