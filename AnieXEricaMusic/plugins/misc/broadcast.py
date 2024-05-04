@@ -75,6 +75,7 @@ async def braodcast_message(client, message, _):
                         continue
                 sent += 3
                 await asyncio.sleep(0.2)
+                await AMBOT.edit("» Broadcast in ᴄʜᴀᴛꜱ progress :\nSuccess ᴄʜᴀᴛs: {0}\nᴘɪɴs : {1}".format(sent, pin))
             except FloodWait as fw:
                 flood_time = int(fw.value)
                 if flood_time > 200:
@@ -83,11 +84,12 @@ async def braodcast_message(client, message, _):
             except:
                 continue
         try:
-            await message.reply_text(_["broad_3"].format(sent, pin))
+            await AMBOT.edit("» Broadcast ᴄʜᴀᴛꜱ ᴄᴏᴍᴘʟᴇᴛᴇᴅ :\nSuccess ᴄʜᴀᴛs: {0}\nᴘɪɴs : {1}\nᴛʜᴀɴᴋ ʏᴏᴜ".format(sent, pin))
         except:
             pass
 
     if "-user" in message.text:
+        LOL = await message.reply_text("» ᴜsᴇʀs sᴛᴀʀᴛᴇᴅ ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ...")
         susr = 0
         served_users = []
         susers = await get_served_users()
@@ -102,7 +104,7 @@ async def braodcast_message(client, message, _):
                 )
                 susr += 3
                 await asyncio.sleep(0.2)
-                await AMBOT.edit("» Broadcast progress:\nSuccess ᴄʜᴀᴛs: {0}\nᴘɪɴs : {1}".format(sent, pin))
+                await LOL.edit("» Broadcast ᴜsᴇʀs ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ :\nSuccess ᴜsᴇʀs: {0}".format(susr))
             except FloodWait as fw:
                 flood_time = int(fw.value)
                 if flood_time > 200:
@@ -111,7 +113,7 @@ async def braodcast_message(client, message, _):
             except:
                 pass
         try:
-            await message.reply_text(_["broad_4"].format(susr))
+            await LOL.edit("» ᴄᴏᴍᴘʟᴇᴛᴇᴅ ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ\nᴜsᴇʀs : {0}\n\nᴛʜᴀɴᴋ ʏᴏᴜ".format(susr))
         except:
             pass
 
@@ -132,6 +134,8 @@ async def braodcast_message(client, message, _):
                     )
                     sent += 3
                     await asyncio.sleep(3)
+                    text += "sᴛᴀʀᴛɪɴɢ ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ ɪɴ\n\n ᴀssɪsᴛᴀɴ :{0}\nᴄʜᴀᴛs : {1}".format(num, sent)
+                    await aw.edit_text(text)
                 except FloodWait as fw:
                     flood_time = int(fw.value)
                     if flood_time > 200:
@@ -139,7 +143,7 @@ async def braodcast_message(client, message, _):
                     await asyncio.sleep(flood_time)
                 except:
                     continue
-            text += _["broad_7"].format(num, sent)
+            text += "ᴄᴏᴍᴘʟᴇᴛᴇᴅ :\n↬ ᴀssɪsᴛᴀɴ :{0}\nᴄʜᴀᴛs : {1}\n\nᴛʜᴀɴᴋ ʏᴏᴜ".format(num, sent)
         try:
             await aw.edit_text(text)
         except:
