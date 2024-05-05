@@ -34,12 +34,12 @@
       },
       "OWNER_ID": {
         "description": "The user id of user whom you would like to add as OWNER.from @Sophia_x_MusicBot on Telegram.",
-        "value": "5916859256",
+        "value": "7137269276",
         "required": true
       },
     "OWNER": {
         "description": "The user id of user whom you would like to add as OWNER.from @Sophia_x_MusicBot on Telegram.",
-        "value": "5916859256",
+        "value": "7137269276",
         "required": true
       },
     "GBAN_LOGS": {
