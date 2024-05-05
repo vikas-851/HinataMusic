@@ -12,7 +12,7 @@ from config import BANNED_USERS, OWNER_ID, START_IMG_URL, OWNER
 
 
 
-@app.on_message(filters.command(["addsudo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.user(OWNER))
+@app.on_message(filters.command(["addsudo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.user(OWNER_ID))
 @language
 async def useradd(client, message: Message, _):
     if not message.reply_to_message:
@@ -29,7 +29,7 @@ async def useradd(client, message: Message, _):
         await message.reply_text(_["sudo_8"])
 
 
-@app.on_message(filters.command(["delsudo", "rmsudo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.user(OWNER))
+@app.on_message(filters.command(["delsudo", "rmsudo"], prefixes=["/", "!", "%", ",", "", ".", "@", "#"]) & filters.user(OWNER_ID))
 @language
 async def userdel(client, message: Message, _):
     if not message.reply_to_message:
