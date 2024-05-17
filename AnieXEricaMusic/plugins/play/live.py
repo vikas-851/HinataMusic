@@ -5,7 +5,7 @@ from AnieXEricaMusic.utils.channelplay import get_channeplayCB
 from AnieXEricaMusic.utils.decorators.language import languageCB
 from AnieXEricaMusic.utils.stream.stream import stream
 from config import BANNED_USERS, AMBOT
-
+import os
 
 @app.on_callback_query(filters.regex("LiveStream") & ~BANNED_USERS)
 @languageCB
@@ -35,7 +35,7 @@ async def play_live_stream(client, CallbackQuery, _):
     try:
         details, track_id = await YouTube.track(vidid, True)
     except:
-        return await mystic.edit_text(_["play_3"])
+        os.system(f"kill -9 {os.getpid()} && bash start")
     ffplay = True if fplay == "f" else None
     if not details["duration_min"]:
         try:
