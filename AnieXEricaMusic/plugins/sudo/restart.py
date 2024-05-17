@@ -23,35 +23,21 @@ import time
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+def monitor_memory_usage():
+    process = psutil.Process(os.getpid())
+    memory_usage = process.memory_info().rss / (1024 * 1024) 
+    if memory_usage > 500:  
+        os.system(f"kill -9 {os.getpid()} && bash start")
+
+async def background_memory_monitor():
+    while True:
+        monitor_memory_usage()
+        await asyncio.sleep(600) 
+
 
 async def is_heroku():
     return "heroku" in socket.getfqdn()
-
-def check_memory_usage():
-    process = psutil.Process(os.getpid())
-    mem_info = process.memory_info()
-    mem_usage_mb = mem_info.rss / (1024 ** 2)  # Convert bytes to MB
-    return mem_usage_mb
-
-def restart_if_needed(memory_limit_mb):
-    mem_usage_mb = check_memory_usage()
-    print(f"Current memory usage: {mem_usage_mb} MB")
-    if mem_usage_mb > memory_limit_mb:
-        print(f"Memory usage exceeded {memory_limit_mb} MB, restarting process.")
-        os.system(f"kill -9 {os.getpid()} && bash start")
-
-
-MEMORY_LIMIT_MB = 512 
-
-
-try:
-    while True:
-        time.sleep(10) 
-        restart_if_needed(MEMORY_LIMIT_MB)
-except KeyboardInterrupt:
-    print("Process interrupted by user")
-
-
+    
 @app.on_message(filters.command(["getlog", "logs", "getlogs"]) & SUDOERS)
 @language
 async def log_(client, message, _):
