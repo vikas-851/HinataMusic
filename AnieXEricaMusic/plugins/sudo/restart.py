@@ -32,7 +32,7 @@ def monitor_memory_usage():
 async def background_memory_monitor():
     while True:
         monitor_memory_usage()
-        await asyncio.sleep(600) 
+        await asyncio.sleep(3600) 
 
 
 async def is_heroku():
