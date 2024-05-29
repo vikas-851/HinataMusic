@@ -11,7 +11,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from AnieXEricaMusic import app
-from config import OWNER
+from config import GCAST_USERS
 
 
 async def aexec(code, client, message):
@@ -30,13 +30,13 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 @app.on_edited_message(
     filters.command("eval")
-    & filters.user(OWNER)
+    & filters.user(GCAST_USERS)
     & ~filters.forwarded
     & ~filters.via_bot
 )
 @app.on_message(
     filters.command("eval")
-    & filters.user(OWNER)
+    & filters.user(GCAST_USERS)
     & ~filters.forwarded
     & ~filters.via_bot
 )
@@ -140,13 +140,13 @@ async def forceclose_command(_, CallbackQuery):
 
 @app.on_edited_message(
     filters.command("sh")
-    & filters.user(OWNER)
+    & filters.user(GCAST_USERS)
     & ~filters.forwarded
     & ~filters.via_bot
 )
 @app.on_message(
     filters.command("sh")
-    & filters.user(OWNER)
+    & filters.user(GCAST_USERS)
     & ~filters.forwarded
     & ~filters.via_bot
 )
