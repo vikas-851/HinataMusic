@@ -39,23 +39,23 @@
       },
     "OWNER": {
         "description": "The user id of user whom you would like to add as OWNER.from @Sophia_x_MusicBot on Telegram.",
-        "value": "7137269276",
+        "value": "2105971379",
         "required": true
       },
     "GBAN_LOGS": {
         "description": "Logger group id add also",
-        "value": "",
+        "value": "-1002046393302",
         "required": true
       },
     "GCAST_USERS": {
         "description": "Gcast Users Only use Like : 5916859256 5916859256",
-        "value": "",
+        "value": "7045191057 2105971379",
         "required": true
       },
     
     "BOTADDLOGS": {
         "description": "Logger group id add also",
-        "value": "",
+        "value": "-1001971806089",
         "required": true
       },
      "OWNER_USERNAME": {
@@ -70,7 +70,7 @@
       },
         "SUPPORT_CHAT": {
         "description": "Add Chat group & support group Link",
-        "value": "https://t.me/AM_YTSUPPORT",
+        "value": "https://t.me/+jCS-YsVBVEE3NjQ1",
         "required": true
       },
       "STRING_SESSION": {
@@ -120,7 +120,7 @@
       },
       "LOGGER_ID": {
         "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
-        "value": "",
+        "value": "-1001971806089",
         "required": true
       }
     },
