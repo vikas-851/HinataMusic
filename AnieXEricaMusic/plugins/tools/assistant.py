@@ -28,9 +28,9 @@ async def set_pfp(_, message: Message):
 @app.on_message(filters.command(["delpfp", "delasspfp"]) & filters.user(GCAST_USERS))
 async def set_pfp(_, message: Message):
     try:
-        pfp = [p async for p in app2.get_chat_photos("me")]
         if 1 in assistants:
            ubot = us.one
+        pfp = [p async for p in ubot.get_chat_photos("me")]
         await ubot.delete_profile_photos(pfp[0].file_id)
         return await message.reply_text( "𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮 𝘿𝙚𝙡𝙚𝙩𝙚𝙙 𝘼𝙨𝙨𝙞𝙨𝙩𝙖𝙣𝙩'𝙨 𝙋𝙧𝙤𝙛𝙞𝙡𝙚 𝙋𝙞𝙘." )
     except Exception as ex:
